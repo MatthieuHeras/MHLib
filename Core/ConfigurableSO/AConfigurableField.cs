@@ -5,7 +5,8 @@ using UnityEngine;
 namespace MHLib.ConfigurableSO
 {
     [Serializable]
-    public abstract class AConfigurableField<TConfigurableSO> where TConfigurableSO : AConfigurableSO
+    public abstract class AConfigurableField<TConfigurableSO>
+        where TConfigurableSO : AConfigurableSO
     {
         [SerializeField, OnValueChanged(nameof(OnConfigurableSOChanged)), BoxGroup("Field", showLabel: false)]
         protected TConfigurableSO configurableSO;
@@ -20,8 +21,21 @@ namespace MHLib.ConfigurableSO
         
         private void OnConfigurableSOChanged()
         {
-            // Create a new instance of the parameter (so it's not null, and displays properly in the inspector)
-            this.parameter = this.parameterType != null ? Activator.CreateInstance(this.configurableSO.ParameterType) : null;
+            this.parameter = this.ComputeEmptyParameter();
+        }
+
+        private object ComputeEmptyParameter()
+        {
+            Type type = this.parameterType;
+            
+            if (type == null)
+                return null;
+            
+            // Edge case with string, it has no empty constructor
+            if (type == typeof(string))
+                return string.Empty;
+            
+            return Activator.CreateInstance(type);
         }
     }
 }
