@@ -1,4 +1,4 @@
-﻿namespace MHLib.MHLib.Actions
+﻿namespace MHLib.Actions
 {
     public abstract class AAction<TContext, TTarget, TResult> : IAction<TContext, TTarget, TResult>
     {

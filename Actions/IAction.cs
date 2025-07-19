@@ -1,4 +1,4 @@
-﻿namespace MHLib.MHLib.Actions
+﻿namespace MHLib.Actions
 {
     public interface IAction<in TContext, in TTarget, out TResult>
     {

@@ -1,7 +1,7 @@
 ﻿using MHLib.ConfigurableSO;
 using System;
 
-namespace MHLib.MHLib.Actions
+namespace MHLib.Actions
 {
     [Serializable]
     public abstract class AActionField<TContext, TTarget, TResult> : AConfigurableField<AActionSO<TContext, TTarget, TResult>>, IAction<TContext, TTarget, TResult>

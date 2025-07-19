@@ -1,6 +1,6 @@
 ﻿using MHLib.ConfigurableSO;
 
-namespace MHLib.MHLib.Actions
+namespace MHLib.Actions
 {
     public abstract class AActionSO<TContext, TTarget, TResult> : AConfigurableSO
     {
