@@ -4,7 +4,7 @@ using System;
 namespace MHLib.Conditions
 {
     [Serializable]
-    public abstract class AConditionField<TContext> : AConfigurableField<AConditionSO<TContext>>, ICondition<TContext>
+    public abstract class AConditionField<TContext> : AConfigurableField<AConditionSO<TContext>>
     {
         public ACondition<TContext> CreateCondition(TContext context) => this.configurableSO != null ? this.configurableSO.CreateCondition(this.parameter, context) : null;
         
