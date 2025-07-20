@@ -7,5 +7,7 @@ namespace MHLib.Actions
     public abstract class AActionField<TContext, TTarget, TResult> : AConfigurableField<AActionSO<TContext, TTarget, TResult>>, IAction<TContext, TTarget, TResult>
     {
         public TResult Trigger(TContext context, TTarget target) => this.configurableSO.Trigger(context, target, this.parameter);
+
+        protected override string configurableSOLabel => "Action";
     }
 }

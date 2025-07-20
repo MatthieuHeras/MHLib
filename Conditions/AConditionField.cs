@@ -17,5 +17,7 @@ namespace MHLib.Conditions
             
             return condition.CheckOnce();
         }
+
+        protected override string configurableSOLabel => "Condition";
     }
 }

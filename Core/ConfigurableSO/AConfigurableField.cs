@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace MHLib.ConfigurableSO
 {
-    [Serializable]
+    [Serializable, HideLabel]
     public abstract class AConfigurableField<TConfigurableSO>
         where TConfigurableSO : AConfigurableSO
     {
-        [SerializeField, OnValueChanged(nameof(OnConfigurableSOChanged)), BoxGroup("Field", showLabel: false)]
+        [SerializeField, OnValueChanged(nameof(OnConfigurableSOChanged)), LabelText("$configurableSOLabel"), BoxGroup("Field", showLabel: false)]
         protected TConfigurableSO configurableSO;
         
         [SerializeReference, HideLabel, HideReferenceObjectPicker, ShowIf(nameof(ShowParameter)), BoxGroup("Field", showLabel: false)]
@@ -37,5 +37,7 @@ namespace MHLib.ConfigurableSO
             
             return Activator.CreateInstance(type);
         }
+        
+        protected abstract string configurableSOLabel { get; }
     }
 }
