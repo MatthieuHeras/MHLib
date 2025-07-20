@@ -4,9 +4,8 @@ using System;
 namespace MHLib.Conditions
 {
     [Serializable]
-    public abstract class AConditionSO<TCondition, TContext> : AConfigurableSO
-        where TCondition : ACondition<TContext>
+    public abstract class AConditionSO<TContext> : AConfigurableSO
     {
-        public abstract TCondition CreateCondition(object parameter, TContext context);
+        public abstract ACondition<TContext> CreateCondition(object parameter, TContext context);
     }
 }

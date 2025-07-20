@@ -23,7 +23,7 @@ namespace MHLib.ConfigurableSO
         {
             this.parameter = this.ComputeEmptyParameter();
         }
-
+        
         private object ComputeEmptyParameter()
         {
             Type type = this.parameterType;
