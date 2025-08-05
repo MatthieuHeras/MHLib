@@ -52,7 +52,7 @@
                         continue;
                     
                     float distance = getDistance(currentNode!.Node, neighbour) + currentNode.DistanceFromStart;
-                    if (distance < maxDistance)
+                    if (distance <= maxDistance)
                         openList.Add(new DijkstraNode<TNode>(neighbour, currentNode, distance));
                 }
             }
