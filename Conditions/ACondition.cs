@@ -6,12 +6,12 @@ namespace MHLib.Conditions
     {
         protected ACondition(object parameter, TContext context)
         {
-            this.Parameter = parameter;
-            this.Context = context;
+            this.parameter = parameter;
+            this.context = context;
         }
         
-        protected readonly object Parameter;
-        protected readonly TContext Context;
+        protected readonly object parameter;
+        protected readonly TContext context;
         
         public bool Value { get; private set; }
         
